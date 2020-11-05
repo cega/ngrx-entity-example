@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
+import { map, switchMap, catchError } from 'rxjs/operators';
 import * as fromActions from '../actions/article.actions';
 import { ArticleService } from '../services/article.service';
 
@@ -20,7 +20,8 @@ export class ArticleEffects {
       map(data => ({
         type: fromActions.ArticleActionTypes.LoadArticlesSuccess,
         payload: data
-      }))
+      }),
+      catchError(() => EMPTY)
     ))
   ))
   // @Effect() 
