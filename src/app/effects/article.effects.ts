@@ -22,7 +22,7 @@ export class ArticleEffects {
         payload: data
       }),
       catchError(() => EMPTY)
-    ))
+    )))
   ))
   // @Effect() 
   // loadAllArticles$: Observable<Action> = this.actions$.pipe(
@@ -33,4 +33,3 @@ export class ArticleEffects {
   //     ))
   //   )
 }
-
