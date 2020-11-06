@@ -17,13 +17,12 @@ export class ArticleEffects {
   loadAllArticles$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.ArticleActionTypes.LOAD_ALL_ARTICLES),    
     switchMap(() => this.articleService.getAllArticles().pipe(
-      map(data => ({
-        type: fromActions.ArticleActionTypes.LoadArticlesSuccess,
-        payload: data
-      }),
+      map(data => fromActions.ArticleActionTypes.LoadArticlesSuccess(
+        {articles: data})
+      ),
       catchError(() => EMPTY)
     )))
-  ))
+  );
   // @Effect() 
   // loadAllArticles$: Observable<Action> = this.actions$.pipe(
   //     ofType(fromActions.ArticleActionTypes.LOAD_ALL_ARTICLES),
