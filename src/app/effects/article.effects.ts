@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { EMPTY } from 'rxjs';
+import { Actions, Effect, createEffect, ofType } from '@ngrx/effects';
+import { Observable, EMPTY } from 'rxjs';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import * as fromActions from '../actions/article.actions';
 import { ArticleService } from '../services/article.service';
@@ -14,21 +14,22 @@ export class ArticleEffects {
     private articleService: ArticleService
   ) {}      
 
-  loadAllArticles$ = createEffect(() => this.actions$.pipe(
-    ofType(fromActions.ArticleActionTypes.LOAD_ALL_ARTICLES),    
-    switchMap(() => this.articleService.getAllArticles().pipe(
-      map(data => fromActions.ArticleActionTypes.LoadArticlesSuccess(
-        {articles: data})
-      ),
-      catchError(() => EMPTY)
-    )))
-  );
-  // @Effect() 
-  // loadAllArticles$: Observable<Action> = this.actions$.pipe(
-  //     ofType(fromActions.ArticleActionTypes.LOAD_ALL_ARTICLES),
-  //     switchMap(() => this.articleService.getAllArticles(),
-  //     map(data => new fromActions.LoadArticlesSuccess(
-  //       { articles: data }
-  //     ))
-  //   )
+  // loadAllArticles$ = createEffect(() => this.actions$.pipe(
+  //   ofType(fromActions.ArticleActionTypes.LOAD_ALL_ARTICLES),    
+  //   switchMap(() => this.articleService.getAllArticles().pipe(
+  //     map(data => fromActions.ArticleActionTypes.LoadArticlesSuccess(
+  //       {articles: data})
+  //     ),
+  //     catchError(() => EMPTY)
+  //   )))
+  // );
+
+  @Effect() 
+  loadAllArticles$: Observable<any> = this.actions$.pipe(
+      ofType(fromActions.ArticleActionTypes.LOAD_ALL_ARTICLES),
+      switchMap(() => this.articleService.getAllArticles(),
+      map(data => new fromActions.LoadArticlesSuccess(
+        { articles: data }
+      ))
+    ))
 }
