@@ -1,4 +1,4 @@
-import { Action } from '@ngrx/store';
+import { Action, createAction, props } from '@ngrx/store';
 import { Update } from '@ngrx/entity/src/models'; 
 import { Article } from '../models/article';
 
@@ -58,3 +58,17 @@ export type ARTICLE_ACTIONS = AddArticle | AddArticles
                          | RemoveArticle | RemoveArticles
                          | ClearArticles | LoadArticlesSuccess
                          | SelectArticle;
+
+export const loadArticles = createAction(ArticleActionTypes.LOAD_ALL_ARTICLES);
+export const addArticle = createAction(ArticleActionTypes.ADD_ARTICLE, props<{payload: {article: Article}}>());
+export const addArticles = createAction(ArticleActionTypes.ADD_ARTICLES, props<{payload: {articles: Article[]}}>());
+export const updateArticle = createAction(ArticleActionTypes.UPDATE_ARTICLE, props<{payload: {article: Update<Article>}}>());
+
+// export const addArticles = createAction(ArticleActionTypes.ADD_ARTICLES, props<{payload: {articles: Article[]}}>());
+// export const addArticles = createAction(ArticleActionTypes.ADD_ARTICLES, props<{payload: {articles: Article[]}}>());
+// export const addArticles = createAction(ArticleActionTypes.ADD_ARTICLES, props<{payload: {articles: Article[]}}>());
+// export const addArticles = createAction(ArticleActionTypes.ADD_ARTICLES, props<{payload: {articles: Article[]}}>());
+// export const addArticles = createAction(ArticleActionTypes.ADD_ARTICLES, props<{payload: {articles: Article[]}}>());
+// export const addArticles = createAction(ArticleActionTypes.ADD_ARTICLES, props<{payload: {articles: Article[]}}>());
+// export const addArticles = createAction(ArticleActionTypes.ADD_ARTICLES, props<{payload: {articles: Article[]}}>());
+// export const addArticles = createAction(ArticleActionTypes.ADD_ARTICLES, props<{payload: {articles: Article[]}}>());

@@ -30,7 +30,8 @@ export class ArticleComponent implements OnInit {
 		this.articleIds$ = this.store.select(fromReducer.selectArticleIds);
 		this.articleById$ = this.store.select(fromReducer.selectCurrentArticle);
 
-		this.store.dispatch(new fromActions.LoadArticles());
+		// this.store.dispatch(new fromActions.LoadArticles());
+    this.store.dispatch(fromActions.loadArticles());
 	}
 	createBlankArticleForm() {
 		this.articleForm = this.formBuilder.group({
@@ -128,10 +129,12 @@ export class ArticleComponent implements OnInit {
 		}
 	}
 	addArticle(data: Article) {
-		this.store.dispatch(new fromActions.AddArticle({ article: data }));
+		// this.store.dispatch(new fromActions.AddArticle({ article: data }));
+    this.store.dispatch(fromActions.addArticle({payload: {article: data}}));
 	}
 	addArticles(data: Article[]) {
-		this.store.dispatch(new fromActions.AddArticles({ articles: data }));
+		// this.store.dispatch(new fromActions.AddArticles({ articles: data }));
+    this.store.dispatch(fromActions.addArticles({payload: {articles: data}}));
 	}	
 	updateArticle(data: Article) {
 		this.store.dispatch(new fromActions.UpdateArticle({ article: {id: data.id, changes: data}}));

@@ -7,8 +7,10 @@ export const initialState: ArticleState = fromAdapter.adapter.getInitialState({
                               selectedArticleId: null
                         });
 export function reducer(state = initialState, action: fromActions.ARTICLE_ACTIONS): ArticleState {
+  console.log(action);
   switch(action.type) {
     case fromActions.ArticleActionTypes.ADD_ARTICLE: {
+      // console.log('In Articles reducer- payload: ', action.payload);
       return fromAdapter.adapter.addOne(action.payload.article, state);
     }
     case fromActions.ArticleActionTypes.ADD_ARTICLES: { 
