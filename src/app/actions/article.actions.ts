@@ -64,6 +64,8 @@ export type ARTICLE_ACTIONS =
   | LoadArticlesSuccess
   | SelectArticle;
 
+
+// Using createAction --- BEGIN ---
 export const addArticle = createAction(
   ArticleActionTypes.ADD_ARTICLE,
   props<{ payload: { article: Article } }>()
@@ -98,3 +100,4 @@ export const selectArticle = createAction(
   ArticleActionTypes.SELECT_ARTICLE,
   props<{ payload: { articleId: string } }>()
 );
+// Using createAction --- END ---
