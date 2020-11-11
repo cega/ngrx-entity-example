@@ -80,7 +80,7 @@ export const updateArticle = createAction(
 );
 export const updateArticles = createAction(
   ArticleActionTypes.UPDATE_ARTICLES,
-  props<{ payload: { article: Update<Article[]> } }>()
+  props<{ payload: { articles: Update<Article>[] } }>()
 );
 export const removeArticle = createAction(
   ArticleActionTypes.REMOVE_ARTICLE,
