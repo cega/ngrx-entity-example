@@ -17,35 +17,35 @@ export enum ArticleActionTypes {
 
 export const addArticle = createAction(
   ArticleActionTypes.ADD_ARTICLE,
-  props<{ payload: { article: Article } }>()
+  props<{ article: Article }>()
 );
 export const addArticles = createAction(
   ArticleActionTypes.ADD_ARTICLES,
-  props<{ payload: { articles: Article[] } }>()
+  props<{ articles: Article[] }>()
 );
 export const updateArticle = createAction(
   ArticleActionTypes.UPDATE_ARTICLE,
-  props<{ payload: { article: Update<Article> } }>()
+  props<{ article: Update<Article> }>()
 );
 export const updateArticles = createAction(
   ArticleActionTypes.UPDATE_ARTICLES,
-  props<{ payload: { articles: Update<Article>[] } }>()
+  props<{ articles: Update<Article>[] }>()
 );
 export const removeArticle = createAction(
   ArticleActionTypes.REMOVE_ARTICLE,
-  props<{ payload: { id: string } }>()
+  props<{ id: string }>()
 );
 export const removeArticles = createAction(
   ArticleActionTypes.REMOVE_ARTICLES,
-  props<{ payload: { ids: string[] } }>()
+  props<{ ids: string[] }>()
 );
 export const clearArticles = createAction(ArticleActionTypes.CLEAR_ARTICLES);
 export const loadArticles = createAction(ArticleActionTypes.LOAD_ALL_ARTICLES);
 export const loadArticlesSuccess = createAction(
   ArticleActionTypes.LOAD_ALL_ARTICLES_SUCCESS,
-  props<{ payload: { articles: Article[] } }>()
+  props<{ articles: Article[]  }>()
 );
 export const selectArticle = createAction(
   ArticleActionTypes.SELECT_ARTICLE,
-  props<{ payload: { articleId: string } }>()
+  props<{ articleId: string }>()
 );

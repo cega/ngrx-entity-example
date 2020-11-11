@@ -133,17 +133,15 @@ export class ArticleComponent implements OnInit {
     }
   }
   addArticle(data: Article) {
-    this.store.dispatch(fromActions.addArticle({ payload: { article: data } }));
+    this.store.dispatch(fromActions.addArticle({ article: data }));
   }
   addArticles(data: Article[]) {
-    this.store.dispatch(
-      fromActions.addArticles({ payload: { articles: data } })
-    );
+    this.store.dispatch(fromActions.addArticles({ articles: data }));
   }
   updateArticle(data: Article) {
     this.store.dispatch(
       fromActions.updateArticle({
-        payload: { article: { id: data.id, changes: data } }
+        article: { id: data.id, changes: data }
       })
     );
   }
@@ -151,15 +149,17 @@ export class ArticleComponent implements OnInit {
     const allUpdates = data.map(article =>
       Object.assign({}, { id: article.id, changes: article })
     );
-    this.store.dispatch(
-      fromActions.updateArticles({payload: {articles: allUpdates}})
-    );
+    this.store.dispatch(fromActions.updateArticles({ articles: allUpdates }));
   }
   removeArticle(articleId: string) {
-    this.store.dispatch(fromActions.removeArticle({payload: { id: articleId }}));
+    this.store.dispatch(
+      fromActions.removeArticle({ id: articleId })
+    );
   }
   removeArticles(articleIds: string[]) {
-    this.store.dispatch(fromActions.removeArticles({payload: {ids: articleIds }}));
+    this.store.dispatch(
+      fromActions.removeArticles({ ids: articleIds })
+    );
   }
   clearAllArticles() {
     this.store.dispatch(fromActions.clearArticles());
@@ -169,7 +169,7 @@ export class ArticleComponent implements OnInit {
   }
   selectArticleById() {
     this.store.dispatch(
-      fromActions.selectArticle({payload: { articleId: this.articleId }})
+      fromActions.selectArticle({ articleId: this.articleId })
     );
   }
 }

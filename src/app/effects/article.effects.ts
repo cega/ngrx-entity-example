@@ -19,7 +19,7 @@ export class ArticleEffects {
       switchMap(() => 
         this.articleService.getAllArticles().pipe(
           map(data => fromActions.loadArticlesSuccess(
-            {payload: { articles: data }})
+            { articles: data })
           ),
           catchError(() => EMPTY)
         )
