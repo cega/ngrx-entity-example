@@ -15,57 +15,6 @@ export enum ArticleActionTypes {
   SELECT_ARTICLE = "[ARTICLE] Article By Id"
 }
 
-export class AddArticle implements Action {
-  readonly type = ArticleActionTypes.ADD_ARTICLE;
-  constructor(public payload: { article: Article }) {}
-}
-export class AddArticles implements Action {
-  readonly type = ArticleActionTypes.ADD_ARTICLES;
-  constructor(public payload: { articles: Article[] }) {}
-}
-export class UpdateArticle implements Action {
-  readonly type = ArticleActionTypes.UPDATE_ARTICLE;
-  constructor(public payload: { article: Update<Article> }) {}
-}
-export class UpdateArticles implements Action {
-  readonly type = ArticleActionTypes.UPDATE_ARTICLES;
-  constructor(public payload: { articles: Update<Article>[] }) {}
-}
-export class RemoveArticle implements Action {
-  readonly type = ArticleActionTypes.REMOVE_ARTICLE;
-  constructor(public payload: { id: string }) {}
-}
-export class RemoveArticles implements Action {
-  readonly type = ArticleActionTypes.REMOVE_ARTICLES;
-  constructor(public payload: { ids: string[] }) {}
-}
-export class ClearArticles implements Action {
-  readonly type = ArticleActionTypes.CLEAR_ARTICLES;
-}
-export class LoadArticles implements Action {
-  readonly type = ArticleActionTypes.LOAD_ALL_ARTICLES;
-}
-export class LoadArticlesSuccess implements Action {
-  readonly type = ArticleActionTypes.LOAD_ALL_ARTICLES_SUCCESS;
-  constructor(public payload: { articles: Article[] }) {}
-}
-export class SelectArticle implements Action {
-  readonly type = ArticleActionTypes.SELECT_ARTICLE;
-  constructor(public payload: { articleId: string }) {}
-}
-export type ARTICLE_ACTIONS =
-  | AddArticle
-  | AddArticles
-  | UpdateArticle
-  | UpdateArticles
-  | RemoveArticle
-  | RemoveArticles
-  | ClearArticles
-  | LoadArticlesSuccess
-  | SelectArticle;
-
-
-// Using createAction --- BEGIN ---
 export const addArticle = createAction(
   ArticleActionTypes.ADD_ARTICLE,
   props<{ payload: { article: Article } }>()
@@ -100,4 +49,3 @@ export const selectArticle = createAction(
   ArticleActionTypes.SELECT_ARTICLE,
   props<{ payload: { articleId: string } }>()
 );
-// Using createAction --- END ---

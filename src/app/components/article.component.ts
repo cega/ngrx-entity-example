@@ -133,17 +133,14 @@ export class ArticleComponent implements OnInit {
     }
   }
   addArticle(data: Article) {
-    // this.store.dispatch(new fromActions.AddArticle({ article: data }));
     this.store.dispatch(fromActions.addArticle({ payload: { article: data } }));
   }
   addArticles(data: Article[]) {
-    // this.store.dispatch(new fromActions.AddArticles({ articles: data }));
     this.store.dispatch(
       fromActions.addArticles({ payload: { articles: data } })
     );
   }
   updateArticle(data: Article) {
-    // this.store.dispatch(new fromActions.UpdateArticle({ article: {id: data.id, changes: data}}));
     this.store.dispatch(
       fromActions.updateArticle({
         payload: { article: { id: data.id, changes: data } }
@@ -151,28 +148,28 @@ export class ArticleComponent implements OnInit {
     );
   }
   updateArticles(data: Article[]) {
-    let allUpdates = data.map(article =>
+    const allUpdates = data.map(article =>
       Object.assign({}, { id: article.id, changes: article })
     );
     this.store.dispatch(
-      new fromActions.UpdateArticles({ articles: allUpdates })
+      fromActions.updateArticles({payload: {articles: allUpdates}})
     );
   }
   removeArticle(articleId: string) {
-    this.store.dispatch(new fromActions.RemoveArticle({ id: articleId }));
+    this.store.dispatch(fromActions.removeArticle({payload: { id: articleId }}));
   }
   removeArticles(articleIds: string[]) {
-    this.store.dispatch(new fromActions.RemoveArticles({ ids: articleIds }));
+    this.store.dispatch(fromActions.removeArticles({payload: {ids: articleIds }}));
   }
   clearAllArticles() {
-    this.store.dispatch(new fromActions.ClearArticles());
+    this.store.dispatch(fromActions.clearArticles());
   }
   loadAllArticles() {
     this.task = "all";
   }
   selectArticleById() {
     this.store.dispatch(
-      new fromActions.SelectArticle({ articleId: this.articleId })
+      fromActions.selectArticle({payload: { articleId: this.articleId }})
     );
   }
 }

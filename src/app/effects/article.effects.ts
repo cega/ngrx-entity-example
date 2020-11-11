@@ -15,7 +15,7 @@ export class ArticleEffects {
 
   loadAllArticles$ = createEffect(() => 
     this.actions$.pipe(
-      ofType(fromActions.ArticleActionTypes.LOAD_ALL_ARTICLES),
+      ofType(fromActions.loadArticles),
       switchMap(() => 
         this.articleService.getAllArticles().pipe(
           map(data => fromActions.loadArticlesSuccess(

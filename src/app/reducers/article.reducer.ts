@@ -30,43 +30,6 @@ export const reducer = createReducer(
     (state, { payload })  => Object.assign({...state, selectedArticleId: payload.articleId})),
 );
 
-// export function reducer(state = initialState, action: fromActions.ARTICLE_ACTIONS): ArticleState {
-//   console.log(action);
-//   switch(action.type) {
-//     case fromActions.ArticleActionTypes.ADD_ARTICLE: {
-//       // console.log('In Articles reducer- payload: ', action.payload);
-//       return fromAdapter.adapter.addOne(action.payload.article, state);
-//     }
-//     case fromActions.ArticleActionTypes.ADD_ARTICLES: { 
-//       return fromAdapter.adapter.addMany(action.payload.articles, state);
-//     }
-//     case fromActions.ArticleActionTypes.UPDATE_ARTICLE: {
-//       return fromAdapter.adapter.updateOne(action.payload.article, state);
-//     }
-//     case fromActions.ArticleActionTypes.UPDATE_ARTICLES: {
-//       return fromAdapter.adapter.updateMany(action.payload.articles, state);
-//     }
-//     case fromActions.ArticleActionTypes.REMOVE_ARTICLE: {
-//       return fromAdapter.adapter.removeOne(action.payload.id, state);
-//     }
-//     case fromActions.ArticleActionTypes.REMOVE_ARTICLES: {
-//       return fromAdapter.adapter.removeMany(action.payload.ids, state);
-//     }
-//     case fromActions.ArticleActionTypes.CLEAR_ARTICLES: {
-//       return fromAdapter.adapter.removeAll({ ...state, selectedArticleId: null });
-//     }
-//     case fromActions.ArticleActionTypes.LOAD_ALL_ARTICLES_SUCCESS: {
-//       return fromAdapter.adapter.addAll(action.payload.articles, state);
-//     }
-//     case fromActions.ArticleActionTypes.SELECT_ARTICLE: {
-//       return Object.assign({ ...state, selectedArticleId: action.payload.articleId });
-//     }     
-//     default: {
-//       return state;
-//     }
-//   }	
-// }
-
 export const getSelectedArticleId = (state: ArticleState) => state.selectedArticleId;
 
 export const getArticleState = createFeatureSelector<ArticleState>('articleState');
