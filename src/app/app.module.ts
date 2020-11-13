@@ -18,8 +18,6 @@ import { ArticleService } from "./services/article.service";
 import { InMemoryWebApiModule } from "angular-in-memory-web-api";
 import { TestData } from "./test-data";
 
-import { HelloComponent } from "./hello.component";
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -30,7 +28,7 @@ import { HelloComponent } from "./hello.component";
     EffectsModule.forRoot([ArticleEffects]),
     InMemoryWebApiModule.forRoot(TestData)
   ],
-  declarations: [AppComponent, ArticleComponent, HelloComponent],
+  declarations: [AppComponent, ArticleComponent],
   providers: [ArticleService],
   bootstrap: [AppComponent]
 })
