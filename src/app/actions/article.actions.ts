@@ -43,7 +43,7 @@ export const clearArticles = createAction(ArticleActionTypes.CLEAR_ARTICLES);
 export const loadArticles = createAction(ArticleActionTypes.LOAD_ALL_ARTICLES);
 export const loadArticlesSuccess = createAction(
   ArticleActionTypes.LOAD_ALL_ARTICLES_SUCCESS,
-  props<{ articles: Article[]  }>()
+  props<{ articles: Article[] }>()
 );
 export const selectArticle = createAction(
   ArticleActionTypes.SELECT_ARTICLE,
